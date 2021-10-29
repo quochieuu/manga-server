@@ -1,0 +1,393 @@
+﻿@model MangaBook.Data.Entities.Manga
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="site-content">
+    <div class="post-454 wp-manga type-wp-manga status-publish has-post-thumbnail hentry wp-manga-tag-achitaka wp-manga-tag-action wp-manga-release-92 wp-manga-author-achitaka wp-manga-author-akira-amano wp-manga-artist-ichita-ortiki wp-manga-artist-inmoki wp-manga-genre-action wp-manga-genre-adventure">
+        <div class="profile-manga summary-layout-1" style="background-image: url(https://live.mangabooth.com/wp-content/themes/madara/images/bg-search.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12">
+                        <div class="c-breadcrumb-wrapper">
+                            <div class="c-breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <a href="/"> Home </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/"> @Model.Name </a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="post-title">
+                            <span class="manga-title-badges new">NEW</span>
+                            <h1>
+                                @Model.Name
+                            </h1>
+                        </div>
+                        <div class="tab-summary">
+                            <div class="summary_image">
+                                <a href="#">
+                                    <img width="193"
+                                         height="278"
+                                         data-src="./uploads/manga/@Model.UrlImage"
+                                         data-srcset="./uploads/manga/@Model.UrlImage 193w, ./uploads/manga/@Model.UrlImage 125w"
+                                         data-sizes="(max-width: 193px) 100vw, 193px"
+                                         class="img-responsive lazyload effect-fade"
+                                         src="./uploads/manga/@Model.UrlImage"
+                                         style="padding-top: 278px;"
+                                         alt="@Model.Name" />
+                                </a>
+                            </div>
+                            <div class="summary_content_wrap">
+                                <div class="summary_content">
+                                    <div class="post-content">
+                                        
+                                        <div class="post-rating">
+                                            <div class="post-total-rating allow_vote">
+                                                <i class="ion-ios-star ratings_stars rating_current"></i><i class="ion-ios-star ratings_stars rating_current"></i><i class="ion-ios-star ratings_stars rating_current"></i>
+                                                <i class="ion-ios-star ratings_stars rating_current"></i><i class="ion-ios-star-outline ratings_stars"></i><span class="score font-meta total_votes">4.2</span>
+                                            </div>
+                                            <div class="user-rating allow_vote">
+                                                <i class="ion-ios-star-outline ratings_stars"></i><i class="ion-ios-star-outline ratings_stars"></i><i class="ion-ios-star-outline ratings_stars"></i>
+                                                <i class="ion-ios-star-outline ratings_stars"></i><i class="ion-ios-star-outline ratings_stars"></i><span class="score font-meta total_votes">Your Rating</span>
+                                            </div>
+                                            <input type="hidden" class="rating-post-id" value="454" />
+                                        </div>
+
+                                        <div class="post-content_item">
+                                            <div class="summary-heading">
+                                                <h5>Rating</h5>
+                                            </div>
+                                            <div class="summary-content vote-details" vocab="https://schema.org/" typeof="AggregateRating">
+                                                <span property="itemReviewed" typeof="Book"><span class="rate-title" property="name" title="Manga Text Chapter">Manga Text Chapter</span></span>
+                                                <span>
+                                                    <span> Average <span property="ratingValue" id="averagerate"> 4.2</span> / <span property="bestRating">5</span> </span>
+                                                </span>
+                                                out of <span property="ratingCount" id="countrate">127</span>
+                                            </div>
+                                        </div>
+                                        <div class="post-content_item">
+                                            <div class="summary-heading">
+                                                <h5>
+                                                    Author(s)
+                                                </h5>
+                                            </div>
+                                            <div class="summary-content">
+                                                <div class="author-content">
+                                                    <a href="#" rel="tag">@Model.Author</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="post-content_item">
+                                            <div class="summary-heading">
+                                                <h5>
+                                                    Genres
+                                                </h5>
+                                            </div>
+                                            <div class="summary-content">
+                                                <div class="genres-content">
+                                                     @foreach(var genre in ViewBag.ListGenreByManga)
+                                                     {
+                                                        <a href="#" rel="tag">@genre.Name</a>
+                                                     }
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        
+                                    </div>
+                                    <div class="post-status">
+                                        <div class="post-content_item">
+                                            <div class="summary-heading">
+                                                <h5>
+                                                    Release
+                                                </h5>
+                                            </div>
+                                            <div class="summary-content">
+                                                <a href="#" rel="tag">@Model.ReleaseYear</a>
+                                            </div>
+                                        </div>
+                                        <div class="post-content_item">
+                                            <div class="summary-heading">
+                                                <h5>
+                                                    Status
+                                                </h5>
+                                            </div>
+                                            <div class="summary-content">
+                                                @if (Model.MangaStatus == 0)
+                                                {
+                                                    <span>On Going</span>
+                                                }
+                                                else if (Model.MangaStatus == 1)
+                                                {
+                                                    <span>Full</span>
+                                                }
+                                                else
+                                                {
+                                                    <span></span>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="manga-action">
+                                            <div class="count-comment">
+                                                <div class="action_icon">
+                                                    <a href="#manga-discussion"><i class="icon ion-md-chatbubbles"></i></a>
+                                                </div>
+                                                <div class="action_detail">
+                                                    <span class="disqus-comment-count" data-disqus-url="/manga-text-chapter/">Comments</span>
+                                                </div>
+                                            </div>
+                                            <div class="add-bookmark">
+                                                <div class="action_icon">
+                                                    <script type="text/javascript">
+                                                        var requireLogin2BookMark = true;
+                                                    </script>
+                                                    <a href="#" class="wp-manga-action-button" data-action="bookmark" data-post="454" data-chapter="" data-page="1" title="Bookmark"><i class="icon ion-ios-bookmark"></i></a>
+                                                </div>
+                                                <div class="action_detail"><span>9 Users bookmarked This</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="init-links" class="nav-links">
+                                        <a href="#" id="btn-read-last" class="c-btn c-btn_style-1"> Đọc Ngay </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-page-content style-1">
+            <div class="content-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="main-col col-md-12 col-sm-12 sidebar-hidden">
+                            <!-- container & no-sidebar-->
+                            <div class="main-col-inner">
+                                <div class="c-page">
+                                    <!-- <div class="c-page__inner"> -->
+                                    <div class="c-page__content">
+                                        <div class="c-blog__heading style-2 font-heading">
+                                            <h2 class="h4">
+                                                <i class="icon ion-ios-star"></i>
+                                                Summary
+                                            </h2>
+                                        </div>
+
+                                        <div class="description-summary">
+                                            <div class="summary__content show-more"
+                                                <p>
+                                                    @Model.Description
+                                                </p>
+                                            </div>
+
+                                            <div class="c-content-readmore">
+                                                <span class="btn btn-link content-readmore"> Show more </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="c-blog__heading style-2 font-heading">
+                                            <h2 class="h4">
+                                                <i class="icon ion-ios-star"></i>
+                                                LATEST MANGA RELEASES
+                                            </h2>
+                                            <a href="#" title="Change Order" class="btn-reverse-order"><i class="icon ion-md-swap"></i></a>
+                                        </div>
+                                        <div class="page-content-listing single-page">
+                                            <div class="listing-chapters_wrap cols-1 show-more">
+                                                <ul class="main version-chap no-volumn">
+                                                    @foreach (var chap in ViewBag.ListChapterByManga)
+                                                    {
+                                                        <li class="wp-manga-chapter">
+                                                            <a asp-controller="Manga" asp-action="ChapterDetail" asp-route-chapterSlug="@chap.Slug"> @chap.Name </a>
+
+                                                            <span class="chapter-release-date"> <i>@chap.ModifiedDate.ToString("dd/MM/yyyy")</i> </span>
+                                                        </li>
+                                                    }
+
+                                                </ul>
+
+                                                <div class="c-chapter-readmore">
+                                                    <span class="btn btn-link chapter-readmore"> Show more </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+
+                                <!-- comments-area -->
+
+                                <div id="manga-discussion" class="c-blog__heading style-2 font-heading">
+                                    <i class="ion-ios-star"></i>
+                                    <h4>MANGA DISCUSSION</h4>
+                                </div>
+                                <div class="manga-discussion wrapper">
+                                    <div class="hr mv40"></div>
+
+                                    <div id="madara-comments" class="comments-area">
+                                        <div id="respond" class="comment-respond">
+                                            <h4 id="reply-title" class="comment-reply-title">
+                                                Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/manga/manga-text-chapter/#respond" style="display: none;">Cancel reply</a></small>
+                                            </h4>
+                                            <form action="https://live.mangabooth.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+                                                <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                                                <p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Comment"></textarea></p>
+                                                <p class="comment-form-author">
+                                                    <label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" placeholder="Name" value="" size="30" aria-required="true" />
+                                                </p>
+                                                <p class="comment-form-email">
+                                                    <label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" placeholder="Email" value="" size="30" aria-required="true" />
+                                                </p>
+                                                <p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" placeholder="Website" value="" size="30" /></p>
+                                                <p class="comment-form-cookies-consent">
+                                                    <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" />
+                                                    <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
+                                                </p>
+                                                <p class="form-submit">
+                                                    <input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type="hidden" name="comment_post_ID" value="454" id="comment_post_ID" />
+                                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0" />
+                                                </p>
+                                                <input type="hidden" name="wp_manga_chapter_id" value="0" />
+                                            </form>
+                                        </div>
+                                        <!-- #respond -->
+                                    </div>
+                                    <!-- #comments -->
+                                </div>
+
+                                <!-- END comments-area -->
+
+                                <div class="row c-row related-manga">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="c-blog__heading style-2 font-heading">
+                                            <h4>
+                                                <i class="icon ion-ios-star"></i>
+                                                YOU MAY ALSO LIKE
+                                            </h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="related-reading-wrap related-style-2">
+                                            <div class="related-reading-img widget-thumbnail c-image-hover">
+                                                <a title="The Gami Shiobita" href="https://live.mangabooth.com/manga/the-gami-shiobita/">
+                                                    <img width="350"
+                                                         height="219"
+                                                         data-src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-516736.png"
+                                                         data-srcset="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-516736.png 1920w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-516736-600x375.png 600w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-516736-300x188.png 300w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-516736-1024x640.png 1024w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-516736-768x480.png 768w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-516736-1536x960.png 1536w"
+                                                         data-sizes="(max-width: 350px) 100vw, 350px"
+                                                         class="img-responsive lazyload effect-fade"
+                                                         src="https://live.mangabooth.com/wp-content/themes/madara/images/dflazy.jpg"
+                                                         style="padding-top: 62.571428571429%;"
+                                                         alt="wallhaven-516736" />
+                                                </a>
+                                            </div>
+                                            <div class="related-reading-content">
+                                                <h5 class="widget-title">
+                                                    <a href="https://live.mangabooth.com/manga/the-gami-shiobita/" title="The Gami Shiobita"> The Gami Shiobita </a>
+                                                </h5>
+                                            </div>
+                                            <div class="post-on font-meta">
+                                                <span> October 11, 2017 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="related-reading-wrap related-style-2">
+                                            <div class="related-reading-img widget-thumbnail c-image-hover">
+                                                <a title="Lahasha Ya Shyng Bukitaza" href="https://live.mangabooth.com/manga/lahasha-ya-shyng-bukitaza/">
+                                                    <img width="350"
+                                                         height="197"
+                                                         data-src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-539934.jpg"
+                                                         data-srcset="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-539934.jpg 1920w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-539934-600x338.jpg 600w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-539934-300x169.jpg 300w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-539934-1024x576.jpg 1024w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-539934-768x432.jpg 768w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-539934-1536x864.jpg 1536w"
+                                                         data-sizes="(max-width: 350px) 100vw, 350px"
+                                                         class="img-responsive lazyload effect-fade"
+                                                         src="https://live.mangabooth.com/wp-content/themes/madara/images/dflazy.jpg"
+                                                         style="padding-top: 56.285714285714%;"
+                                                         alt="wallhaven-539934" />
+                                                </a>
+                                            </div>
+                                            <div class="related-reading-content">
+                                                <h5 class="widget-title">
+                                                    <a href="https://live.mangabooth.com/manga/lahasha-ya-shyng-bukitaza/" title="Lahasha Ya Shyng Bukitaza"> Lahasha Ya Shyng Bukitaza </a>
+                                                </h5>
+                                            </div>
+                                            <div class="post-on font-meta">
+                                                <span> October 11, 2017 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="related-reading-wrap related-style-2">
+                                            <div class="related-reading-img widget-thumbnail c-image-hover">
+                                                <a title="Miharu Rokujou" href="https://live.mangabooth.com/manga/miharu-rokujou/">
+                                                    <img width="350"
+                                                         height="197"
+                                                         data-src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-529968.jpg"
+                                                         data-srcset="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-529968.jpg 1920w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-529968-600x338.jpg 600w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-529968-300x169.jpg 300w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-529968-1024x576.jpg 1024w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-529968-768x432.jpg 768w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-529968-1536x864.jpg 1536w"
+                                                         data-sizes="(max-width: 350px) 100vw, 350px"
+                                                         class="img-responsive lazyload effect-fade"
+                                                         src="https://live.mangabooth.com/wp-content/themes/madara/images/dflazy.jpg"
+                                                         style="padding-top: 56.285714285714%;"
+                                                         alt="wallhaven-529968" />
+                                                </a>
+                                            </div>
+                                            <div class="related-reading-content">
+                                                <h5 class="widget-title">
+                                                    <a href="https://live.mangabooth.com/manga/miharu-rokujou/" title="Miharu Rokujou"> Miharu Rokujou </a>
+                                                </h5>
+                                            </div>
+                                            <div class="post-on font-meta">
+                                                <span> October 12, 2017 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="related-reading-wrap related-style-2">
+                                            <div class="related-reading-img widget-thumbnail c-image-hover">
+                                                <a title="Monatari Takawoa Yangku" href="https://live.mangabooth.com/manga/monatari-takawoa-yangku/">
+                                                    <img width="350"
+                                                         height="197"
+                                                         data-src="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-530467.png"
+                                                         data-srcset="https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-530467.png 1920w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-530467-600x338.png 600w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-530467-300x169.png 300w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-530467-1024x576.png 1024w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-530467-768x432.png 768w, https://live.mangabooth.com/wp-content/uploads/2017/10/wallhaven-530467-1536x864.png 1536w"
+                                                         data-sizes="(max-width: 350px) 100vw, 350px"
+                                                         class="img-responsive lazyload effect-fade"
+                                                         src="https://live.mangabooth.com/wp-content/themes/madara/images/dflazy.jpg"
+                                                         style="padding-top: 56.285714285714%;"
+                                                         alt="wallhaven-530467" />
+                                                </a>
+                                            </div>
+                                            <div class="related-reading-content">
+                                                <h5 class="widget-title">
+                                                    <a href="https://live.mangabooth.com/manga/monatari-takawoa-yangku/" title="Monatari Takawoa Yangku"> Monatari Takawoa Yangku </a>
+                                                </h5>
+                                            </div>
+                                            <div class="post-on font-meta">
+                                                <span> October 13, 2017 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
